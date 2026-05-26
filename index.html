@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Currency Tracker</title>
+
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/variables.css" />
+</head>
+<body>
+
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <h1>Currency Tracker</h1>
+    </div>
+
+    <button class="theme-button">
+      Dark Mode
+    </button>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">
+          Tempo real
+        </span>
+
+        <h2>
+          Acompanhe moedas globais
+          com visual moderno e dados atualizados.
+        </h2>
+
+        <p>
+          Veja a valorização e desvalorização das principais moedas do mercado financeiro.
+        </p>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Pesquisar moeda..."
+        />
+
+        <button>
+          Buscar
+        </button>
+      </div>
+    </section>
+
+    <section class="currencies-section">
+
+      <div class="section-title">
+        <h3>Mercado hoje</h3>
+
+        <button class="refresh-button">
+          Atualizar
+        </button>
+      </div>
+
+      <div class="currency-grid">
+
+        <article class="currency-card">
+          <div class="currency-top">
+            <div>
+              <span class="currency-symbol">USD</span>
+              <h4>Dólar Americano</h4>
+            </div>
+
+            <span class="status positive">
+              +0.82%
+            </span>
+          </div>
+
+          <div class="currency-price">
+            R$ 5,42
+          </div>
+
+          <div class="currency-footer">
+            <span>Atualizado agora</span>
+          </div>
+        </article>
+
+        <article class="currency-card">
+          <div class="currency-top">
+            <div>
+              <span class="currency-symbol">EUR</span>
+              <h4>Euro</h4>
+            </div>
+
+            <span class="status negative">
+              -0.24%
+            </span>
+          </div>
+
+          <div class="currency-price">
+            R$ 6,08
+          </div>
+
+          <div class="currency-footer">
+            <span>Atualizado agora</span>
+          </div>
+        </article>
+
+        <article class="currency-card">
+          <div class="currency-top">
+            <div>
+              <span class="currency-symbol">BTC</span>
+              <h4>Bitcoin</h4>
+            </div>
+
+            <span class="status positive">
+              +2.14%
+            </span>
+          </div>
+
+          <div class="currency-price">
+            R$ 582.000
+          </div>
+
+          <div class="currency-footer">
+            <span>Atualizado agora</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

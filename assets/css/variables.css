@@ -1,0 +1,16 @@
+:root {
+  --background: #07111f;
+  --surface: rgba(16, 25, 43, 0.7);
+  --surface-border: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #f4f7fb;
+  --text-secondary: #8fa3bf;
+
+  --accent: #5eead4;
+  --accent-soft: rgba(94, 234, 212, 0.12);
+
+  --positive: #4ade80;
+  --negative: #fb7185;
+
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
