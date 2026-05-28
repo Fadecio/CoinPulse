@@ -1,11 +1,8 @@
 const themeButton = document.getElementById("theme-button");
-
 const currencyGrid = document.getElementById("currency-grid");
-
-const buscarBtn = document.getElementById("search-button");
 const atualizarBtn = document.getElementById("refresh-button");
-
 const searchInput = document.getElementById("search-input");
+
 let moedasRenderizadas = [];
 
 const moedas = ["USD-BRL", "EUR-BRL", "BTC-BRL", "GBP-BRL", "ARS-BRL"];
@@ -44,6 +41,9 @@ function pesquisarMoedas() {
   renderizarMoedas(moedasFiltradas);
 }
 
+// imagens removidas: mapa de imagens desnecessário
+
+
 function renderizarMoedas(moedas) {
   currencyGrid.innerHTML = "";
   moedas.forEach((moeda) => {
@@ -53,38 +53,52 @@ function renderizarMoedas(moedas) {
 
     const simbolo = variacao >= 0 ? "+" : "";
 
-    const precoFormatado = Number(moeda.bid).toLocaleString("pt-BR", {
+    const valor = Number(moeda.bid);
+
+    const precoFormatado = valor.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
+      minimumFractionDigits: valor < 1 ? 4 : 2,
+      maximumFractionDigits: valor < 1 ? 4 : 2,
     });
 
-    const card = `<article class="currency-card">
-                        <div class="currency-top">
-                            <div>
-                                <span class="currency-symbol">
-                                ${moeda.code}
-                                </span>
-                                
-                                <h4>
-                                ${moeda.name}
-                                </h4>
-                            </div>
+    const card = `
+  <article class="currency-card">
 
-                            <span class="status ${statusClass}">
-                                ${simbolo}${variacao.toFixed(2)}%
-                            </span>
-                        </div>
+    <div class="currency-top">
+      <div class="currency-title-area">
+        <div>
+          <span class="currency-symbol">
+            ${moeda.code}
+          </span>
 
-                        <div class="currency-price">
-                            ${precoFormatado}
-                        </div>
-                        <div class="currency-footer">
-                            <span>
-                                Atualizado agora
-                            </span>
-                        </div>
-                    </article>
-                `;
+          <h4>
+            ${moeda.name}
+          </h4>
+        </div>
+
+        <!-- imagem removida -->
+      </div>
+
+      <span class="status ${statusClass}">
+        ${simbolo}${variacao.toFixed(2)}%
+      </span>
+    </div>
+
+    <div class="currency-price">
+      ${precoFormatado}
+    </div>
+
+    <!-- imagem mobile removida -->
+
+    <div class="currency-footer">
+      <span>
+        Atualizado agora
+      </span>
+    </div>
+
+  </article>
+`;
 
     currencyGrid.innerHTML += card;
   });
@@ -120,10 +134,7 @@ function alternarTema() {
 
   const temaClaroAtivo = document.body.classList.contains("light-mode");
 
-  localStorage.setItem(
-    "theme",
-    temaClaroAtivo ? "light" : "dark"
-  );
+  localStorage.setItem("theme", temaClaroAtivo ? "light" : "dark");
 
   atualizarTextoTema(temaClaroAtivo);
 }

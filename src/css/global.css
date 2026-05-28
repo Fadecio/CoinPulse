@@ -91,13 +91,17 @@ body {
 .logo-icon,
 .currency-card {
   border: none;
-  cursor: pointer;
   transition:
     background 0.4s ease,
     border 0.4s ease,
     color 0.4s ease,
     transform 0.3s ease;
   font-family: inherit;
+}
+
+.theme-button,
+.refresh-button {
+  cursor: pointer;
 }
 
 .theme-button {
@@ -395,12 +399,17 @@ body.light-mode .glow-2 {
 }
 
 body.light-mode .currency-card,
+body.light-mode .search-box {
+  background: var(--surface);
+  border-color: var(--surface-border);
+  box-shadow: var(--shadow);
+}
+
 body.light-mode .search-box button {
   background: linear-gradient(135deg, #3b82f6, #06b6d4);
-
   color: white;
-
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+  border: none;
 }
 
 body.light-mode .theme-button,
@@ -429,25 +438,6 @@ body.light-mode .hero-badge {
 }
 
 @media (max-width: 768px) {
-  /* .header {
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .search-box {
-    flex-direction: column;
-  }
-
-  .search-box button {
-    width: 100%;
-  }
-
-  .section-title {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  } */
-
   .hero {
     padding-top: 30px;
   }
@@ -511,6 +501,10 @@ body.light-mode .hero-badge {
   .currency-top {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
+  }
+
+  .currency-price {
+    margin-bottom: 18px;
   }
 }
