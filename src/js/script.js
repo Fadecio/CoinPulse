@@ -108,38 +108,37 @@ function mostrarLoading() {
 
 function mostrarErro() {
   currencyGrid.innerHTML = `        
-            <div class="error">
+            <div class="error-message">
                 Erro ao carregar dados.
             </div>
         
     `;
 }
 
-function alternarTema(){
-    document.documentElement.classList.toggle("light-mode");
-    const temaClaroAtivo = document.documentElement.classList.contains("light-mode");
+function alternarTema() {
+  document.body.classList.toggle("light-mode");
 
-    localStorage.setItem(
-        "theme",
-        temaClaroAtivo ? "light" : "dark"
-    );
+  const temaClaroAtivo = document.body.classList.contains("light-mode");
 
-    atualizarTextoTema(temaClaroAtivo);
+  localStorage.setItem(
+    "theme",
+    temaClaroAtivo ? "light" : "dark"
+  );
+
+  atualizarTextoTema(temaClaroAtivo);
 }
 
-function carregarTema(){
-    const temaSalvo = localStorage.getItem("theme");
+function carregarTema() {
+  const temaSalvo = localStorage.getItem("theme");
 
-    if (temaSalvo === "ligth"){
-        document.documentElement.classList.add("light-mode");
-
-        atualizarTextoTema(true);
-    }
+  if (temaSalvo === "light") {
+    document.body.classList.add("light-mode");
+    atualizarTextoTema(true);
+  }
 }
 
-function atualizarTextoTema(ligthMode) {
-    themeButton.textContent = 
-    ligthMode ? "Ligth Mode" : "Dark Mode";
+function atualizarTextoTema(lightMode) {
+  themeButton.textContent = lightMode ? "Dark Mode" : "Light Mode";
 }
 
 atualizarBtn.addEventListener("click", buscarMoedas);
