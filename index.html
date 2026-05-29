@@ -1,120 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>CoinPulse</title>
+    <title>CoinPulse</title>
 
-  <link rel="stylesheet" href="./src/css/reset.css" />
-<link rel="stylesheet" href="./src/css/variables.css" />
-<link rel="stylesheet" href="./src/css/global.css" />
-<link rel="stylesheet" href="./src/css/components.css" />
-<link rel="stylesheet" href="./src/css/themes.css" />
-<link rel="stylesheet" href="./src/css/responsive.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/global.css" />
+    <link rel="stylesheet" href="./src/css/components.css" />
+    <link rel="stylesheet" href="./src/css/themes.css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" />
+  </head>
+  <body>
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
 
-  <div class="background-glow glow-1"></div>
-  <div class="background-glow glow-2"></div>
-
-  <header class="header">
-    <div class="logo">
-      <span class="logo-icon">✦</span>
-      <h1>CoinPulse</h1>
-    </div>
-
-    <button class="theme-button" id="theme-button">
-      Dark Mode
-    </button>
-  </header>
-
-  <main class="container">
-
-    <section class="hero">
-      <div class="hero-content">
-        <span class="hero-badge">
-          Tempo real
-        </span>
-
-        <h2>
-          Acompanhe moedas globais
-          com visual moderno e dados atualizados.
-        </h2>
-
-        <p>
-          Veja a valorização e desvalorização das principais moedas do mercado financeiro.
-        </p>
-      </div>
-    </section>
-
-    <section class="search-section">
-      <div class="search-box">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Pesquisar moeda..."
-        />
-
-        <button class="search-button" id="search-button">
-          Buscar
-        </button>
-      </div>
-    </section>
-
-    <section class="converter-section">
-  <div class="section-title">
-    <h3>Conversor de moedas</h3>
-  </div>
-
-  <div class="converter-card">
-    <div class="converter-field">
-      <label for="converter-value">Valor</label>
-      <input
-        type="number"
-        id="converter-value"
-        placeholder="Digite um valor"
-        min="0"
-      />
-    </div>
-
-    <div class="converter-field">
-      <label for="converter-currency">Moeda</label>
-      <select id="converter-currency">
-        <option value="USD">Dólar</option>
-        <option value="EUR">Euro</option>
-        <option value="BTC">Bitcoin</option>
-        <option value="GBP">Libra</option>
-        <option value="ARS">Peso Argentino</option>
-      </select>
-    </div>
-
-    <button class="converter-button" id="converter-button">
-      Converter para Real
-    </button>
-
-    <div class="converter-result" id="converter-result">
-      
-    </div>
-  </div>
-</section>
-
-    <section class="currencies-section">
-
-      <div class="section-title">
-        <h3>Mercado hoje</h3>
-
-        <button class="refresh-button" id="refresh-button">
-          Atualizar
-        </button>
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>CoinPulse</h1>
       </div>
 
-      <div class="currency-grid" id="currency-grid"></div>
-    </section>
+      <button class="theme-button" id="theme-button">Dark Mode</button>
+    </header>
 
-  </main>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-content">
+          <span class="hero-badge"> Tempo real </span>
 
-  <script src="./src/js/script.js"></script>
+          <h2>
+            Acompanhe moedas globais com visual moderno e dados atualizados.
+          </h2>
 
-</body>
+          <p>
+            Veja a valorização e desvalorização das principais moedas do mercado
+            financeiro.
+          </p>
+        </div>
+      </section>
+
+      <section class="search-section">
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Pesquisar moeda..."
+          />
+
+          <button class="search-button" id="search-button">Buscar</button>
+        </div>
+      </section>
+
+      <section class="converter-section">
+        <div class="section-title">
+          <h3>Conversor de moedas</h3>
+        </div>
+
+        <div class="converter-card">
+          <div class="converter-field">
+            <label for="converter-value">Valor</label>
+            <input
+              type="number"
+              id="converter-value"
+              placeholder="Digite um valor"
+              min="0"
+            />
+          </div>
+
+          <div class="converter-field">
+            <label for="converter-currency">Moeda</label>
+            <select id="converter-currency">
+              <option value="USD">Dólar</option>
+              <option value="EUR">Euro</option>
+              <option value="BTC">Bitcoin</option>
+              <option value="GBP">Libra</option>
+              <option value="ARS">Peso Argentino</option>
+            </select>
+          </div>
+
+          <button class="converter-button" id="converter-button">
+            Converter para Real
+          </button>
+
+          <div class="converter-result" id="converter-result"></div>
+        </div>
+      </section>
+
+      <section class="currencies-section">
+        <div class="section-title">
+          <h3>Mercado hoje</h3>
+
+          <button class="refresh-button" id="refresh-button">Atualizar</button>
+        </div>
+
+        <div class="currency-grid" id="currency-grid"></div>
+      </section>
+    </main>
+
+    <script src="./src/js/script.js"></script>
+    <div id="toast-container"></div>
+  </body>
 </html>

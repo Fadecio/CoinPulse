@@ -6,6 +6,7 @@ const converterValue = document.getElementById("converter-value");
 const converterCurrency = document.getElementById("converter-currency");
 const converterButton = document.getElementById("converter-button");
 const converterResult = document.getElementById("converter-result");
+const toastContainer = document.getElementById("toast-container");
 
 let moedasRenderizadas = [];
 
@@ -26,9 +27,10 @@ async function buscarMoedas() {
     moedasRenderizadas = Object.values(data);
 
     renderizarMoedas(moedasRenderizadas);
+    showToast("Cotações atualizadas com sucesso", "success");
   } catch (error) {
     mostrarErro();
-    console.error(error);
+    showToast("Erro ao carregar cotações", "error");
   }
 }
 
@@ -132,6 +134,7 @@ function converterMoeda() {
   });
 
   converterResult.textContent = `${valorDigitado} ${moedaSelecionada} = ${resultadoFormatado}`;
+  showToast("Conversão realizada", "success");
 }
 
 converterButton.addEventListener("click", converterMoeda);
@@ -169,6 +172,10 @@ function alternarTema() {
   localStorage.setItem("theme", temaClaroAtivo ? "light" : "dark");
 
   atualizarTextoTema(temaClaroAtivo);
+  showToast(
+    temaClaroAtivo ? "Tema claro ativado" : "Tema escuro ativado",
+    "info",
+  );
 }
 
 function carregarTema() {
@@ -182,6 +189,20 @@ function carregarTema() {
 
 function atualizarTextoTema(lightMode) {
   themeButton.textContent = lightMode ? "Dark Mode" : "Light Mode";
+}
+
+function showToast(message, type = "info") {
+  const toast = document.createElement("div");
+
+  toast.classList.add("toast", `toast-${type}`);
+
+  toast.textContent = message;
+
+  toastContainer.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
 }
 
 atualizarBtn.addEventListener("click", buscarMoedas);
