@@ -1,0 +1,32 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# OneDrive/Windows
+Desktop.ini
+ehthumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# Build/output
+dist/
+build/
+.cache/
+/.parcel-cache/
+
+# Environment
+.env
+.env.local
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Ignorar especificamente o guia de estudo
+guia-estudo-coinpulse.md

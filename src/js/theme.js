@@ -12,7 +12,7 @@ export function alternarTema() {
   atualizarTextoTema(temaClaroAtivo);
 
   showToast(
-    temaClaroAtivo ? "Tema claro ativado" : "Tema escuro ativado",
+    temaClaroAtivo ? "Tema claro ativado" : "Dark Mode ativado",
     "info",
   );
 }
@@ -30,6 +30,6 @@ function atualizarTextoTema(lightMode) {
   if (!themeButton) return;
 
   themeButton.textContent = lightMode
-   ? "🌙 Tema Escuro" 
-   : "☀️ Tema Claro";
+   ? "🌙 Dark Mode" 
+   : "☀️ Light Mode";
 }
