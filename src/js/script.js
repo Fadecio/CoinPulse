@@ -14,20 +14,25 @@ const moedas = ["USD-BRL", "EUR-BRL", "BTC-BRL", "GBP-BRL", "ARS-BRL"];
 
 const API_URL = `https://economia.awesomeapi.com.br/json/last/${moedas.join(",")}`;
 
-async function buscarMoedas() {
+async function buscarMoedas(mostrarFeedback = false) {
   try {
     mostrarLoading();
 
     const response = await fetch(API_URL);
+
     if (!response.ok) {
       throw new Error("Erro ao buscar moedas");
     }
 
     const data = await response.json();
+
     moedasRenderizadas = Object.values(data);
 
     renderizarMoedas(moedasRenderizadas);
-    showToast("Cotações atualizadas com sucesso", "success");
+
+    if (mostrarFeedback) {
+      showToast("Cotações atualizadas com sucesso", "success");
+    }
   } catch (error) {
     mostrarErro();
     showToast("Erro ao carregar cotações", "error");
@@ -56,6 +61,8 @@ function renderizarMoedas(moedas) {
 
     const simbolo = variacao >= 0 ? "+" : "";
 
+    const miniGrafico = criarMiniGrafico(variacao);
+
     const valor = Number(moeda.bid);
 
     const precoFormatado = valor.toLocaleString("pt-BR", {
@@ -78,9 +85,7 @@ function renderizarMoedas(moedas) {
           <h4>
             ${moeda.name}
           </h4>
-        </div>
-
-        <!-- imagem removida -->
+        </div>        
       </div>
 
       <span class="status ${statusClass}">
@@ -91,8 +96,10 @@ function renderizarMoedas(moedas) {
     <div class="currency-price">
       ${precoFormatado}
     </div>
-
-    <!-- imagem mobile removida -->
+    
+    <div class="mini-chart-wrapper">
+      ${miniGrafico}
+    </div>
 
     <div class="currency-footer">
       <span>
@@ -108,11 +115,12 @@ function renderizarMoedas(moedas) {
 }
 
 function converterMoeda() {
-  const valorDigitado = Number(converterValue.value);
+  const valorDigitado = Number(converterValue.value.replace(",", "."));
   const moedaSelecionada = converterCurrency.value;
 
   if (!valorDigitado || valorDigitado <= 0) {
     converterResult.textContent = "Digite um valor válido.";
+    showToast("Digite um valor válido para converter", "error");
     return;
   }
 
@@ -122,6 +130,7 @@ function converterMoeda() {
 
   if (!moedaEncontrada) {
     converterResult.textContent = "Cotação ainda não carregada.";
+    showToast("Aguarde as cotações carregarem", "info");
     return;
   }
 
@@ -134,10 +143,36 @@ function converterMoeda() {
   });
 
   converterResult.textContent = `${valorDigitado} ${moedaSelecionada} = ${resultadoFormatado}`;
-  showToast("Conversão realizada", "success");
+
+  showToast("Conversão realizada com sucesso", "success");
 }
 
 converterButton.addEventListener("click", converterMoeda);
+
+function criarMiniGrafico(variacao) {
+  const tendenciaPositiva = variacao >= 0;
+
+  const pontos = tendenciaPositiva
+    ? "0,42 25,32 50,36 75,20 100,12"
+    : "0,12 25,22 50,18 75,34 100,42";
+
+  return `
+    <svg
+      class="mini-chart ${tendenciaPositiva ? "mini-chart-positive" : "mini-chart-negative"}"
+      viewBox="0 0 100 50"
+      aria-hidden="true"
+    >
+      <polyline
+        points="${pontos}"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  `;
+}
 
 function mostrarLoading() {
   currencyGrid.innerHTML = `
@@ -192,11 +227,15 @@ function atualizarTextoTema(lightMode) {
 }
 
 function showToast(message, type = "info") {
+  if (!toastContainer) {
+    return;
+  }
+
   const toast = document.createElement("div");
 
   toast.classList.add("toast", `toast-${type}`);
-
   toast.textContent = message;
+  toast.setAttribute("role", "status");
 
   toastContainer.appendChild(toast);
 
@@ -205,12 +244,14 @@ function showToast(message, type = "info") {
   }, 3000);
 }
 
-atualizarBtn.addEventListener("click", buscarMoedas);
+atualizarBtn.addEventListener("click", () => buscarMoedas(true));
+
 buscarMoedas();
 
 themeButton.addEventListener("click", alternarTema);
+
 carregarTema();
 
-setInterval(buscarMoedas, 30000);
+setInterval(() => buscarMoedas(false), 30000);
 
 searchInput.addEventListener("input", pesquisarMoedas);
