@@ -53,3 +53,22 @@ body.light-mode .hero-badge {
   background: var(--accent-soft);
   color: var(--accent);
 }
+
+body.light-mode .converter-card {
+  background: var(--surface);
+  border-color: var(--surface-border);
+  box-shadow: var(--shadow);
+}
+
+body.light-mode .converter-field input,
+body.light-mode .converter-field select,
+body.light-mode .converter-result {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  border-color: var(--surface-border);
+}
+
+body.light-mode .converter-button {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+}

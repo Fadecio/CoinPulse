@@ -2,6 +2,10 @@ const themeButton = document.getElementById("theme-button");
 const currencyGrid = document.getElementById("currency-grid");
 const atualizarBtn = document.getElementById("refresh-button");
 const searchInput = document.getElementById("search-input");
+const converterValue = document.getElementById("converter-value");
+const converterCurrency = document.getElementById("converter-currency");
+const converterButton = document.getElementById("converter-button");
+const converterResult = document.getElementById("converter-result");
 
 let moedasRenderizadas = [];
 
@@ -40,9 +44,6 @@ function pesquisarMoedas() {
 
   renderizarMoedas(moedasFiltradas);
 }
-
-// imagens removidas: mapa de imagens desnecessário
-
 
 function renderizarMoedas(moedas) {
   currencyGrid.innerHTML = "";
@@ -98,11 +99,42 @@ function renderizarMoedas(moedas) {
     </div>
 
   </article>
-`;
+ `;
 
     currencyGrid.innerHTML += card;
   });
 }
+
+function converterMoeda() {
+  const valorDigitado = Number(converterValue.value);
+  const moedaSelecionada = converterCurrency.value;
+
+  if (!valorDigitado || valorDigitado <= 0) {
+    converterResult.textContent = "Digite um valor válido.";
+    return;
+  }
+
+  const moedaEncontrada = moedasRenderizadas.find((moeda) => {
+    return moeda.code === moedaSelecionada;
+  });
+
+  if (!moedaEncontrada) {
+    converterResult.textContent = "Cotação ainda não carregada.";
+    return;
+  }
+
+  const cotacao = Number(moedaEncontrada.bid);
+  const resultado = valorDigitado * cotacao;
+
+  const resultadoFormatado = resultado.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  converterResult.textContent = `${valorDigitado} ${moedaSelecionada} = ${resultadoFormatado}`;
+}
+
+converterButton.addEventListener("click", converterMoeda);
 
 function mostrarLoading() {
   currencyGrid.innerHTML = `

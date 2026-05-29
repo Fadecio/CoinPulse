@@ -7,13 +7,10 @@
 .logo-icon {
   width: 42px;
   height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 14px;
-
   background: linear-gradient(
     135deg,
     rgba(94, 234, 212, 0.25),
@@ -48,12 +45,9 @@
 
 .theme-button {
   padding: 12px 18px;
-
   border-radius: 14px;
-
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
-
   border: 1px solid var(--surface-border);
 }
 
@@ -65,30 +59,21 @@
 .search-box {
   display: flex;
   gap: 14px;
-
   background: var(--surface);
-
   border: 1px solid var(--surface-border);
-
   border-radius: 24px;
-
   padding: 14px;
-
   backdrop-filter: blur(20px);
   box-shadow: var(--shadow);
 }
 
 .search-box input {
   flex: 1;
-
   background: transparent;
   border: none;
   outline: none;
-
   color: var(--text-primary);
-
   font-size: 1rem;
-
   padding: 0 10px;
 }
 
@@ -98,13 +83,10 @@
 
 .search-box button {
   padding: 14px 22px;
-
   border-radius: 16px;
-
+  border: none;
   background: linear-gradient(135deg, #14b8a6, #2563eb);
-
   color: white;
-
   font-weight: 600;
 }
 
@@ -115,13 +97,9 @@
 
 .refresh-button {
   padding: 12px 18px;
-
   border-radius: 14px;
-
   background: rgba(255, 255, 255, 0.04);
-
   border: 1px solid var(--surface-border);
-
   color: var(--text-primary);
 }
 
@@ -241,4 +219,75 @@
   border: 1px solid rgba(251, 113, 133, 0.2);
   color: #fb7185;
   font-weight: 600;
+}
+
+.converter-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 50px;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
+
+.converter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.converter-field label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.converter-field input,
+.converter-field select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--surface-border);
+  outline: none;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.converter-field select option {
+  color: #0f172a;
+}
+
+.converter-button {
+  padding: 15px 22px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #14b8a6, #2563eb);
+  color: white;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.converter-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.converter-result {
+  grid-column: 1 / -1;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--surface-border);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
 }
