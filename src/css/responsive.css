@@ -1,0 +1,71 @@
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 30px;
+  }
+
+  .hero h2 {
+    letter-spacing: -1px;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .header,
+  .hero-content,
+  .section-title {
+    text-align: center;
+    align-items: center;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    justify-content: center;
+  }
+
+  .hero p {
+    margin: 0 auto;
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box input {
+    text-align: center;
+  }
+
+  .section-title {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .currency-card {
+    text-align: center;
+  }
+
+  .currency-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .currency-price {
+    margin-bottom: 18px;
+  }
+}
