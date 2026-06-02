@@ -6,16 +6,6 @@ O projeto permite visualizar cotações atualizadas, pesquisar moedas, converter
 
 ---
 
-## Preview
-
-Adicione aqui uma captura de tela do projeto:
-
-```text
-/images/preview.png
-```
-
----
-
 ## Funcionalidades
 
 ### Cotação em tempo real
@@ -117,6 +107,12 @@ Durante o desenvolvimento foram utilizados diversos conceitos importantes para a
 
 ```text
 src/
+├── assets/
+├── image/
+│
+├── desktop.png
+├── responsive_768px
+│
 ├── css/
 │
 ├── reset.css
