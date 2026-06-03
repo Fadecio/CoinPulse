@@ -6,6 +6,22 @@ O projeto permite visualizar cotações atualizadas, pesquisar moedas, converter
 
 ---
 
+## Preview
+
+### Apresentação do projeto
+
+![Preview de apresentação do CoinPulse](./images/marketing.png)
+
+### Versão desktop
+
+![Preview desktop do dashboard CoinPulse](./images/desktop.png)
+
+### Versão responsiva
+
+![Preview responsivo do CoinPulse em tablet](./images/responsive_768px.png)
+
+---
+
 ## Funcionalidades
 
 ### Cotação em tempo real
@@ -107,12 +123,6 @@ Durante o desenvolvimento foram utilizados diversos conceitos importantes para a
 
 ```text
 src/
-├── assets/
-├── image/
-│
-├── desktop.png
-├── responsive_768px
-│
 ├── css/
 │
 ├── reset.css
