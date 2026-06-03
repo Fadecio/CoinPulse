@@ -4,7 +4,7 @@ Dashboard moderno para acompanhamento de moedas em tempo real, desenvolvido com 
 
 O projeto permite visualizar cotações atualizadas, pesquisar moedas, converter valores para Real (BRL), alternar entre tema claro e escuro e acompanhar tendências através de mini gráficos.
 
-- Deploy: fadecio.github.io/CoinPulse/  
+- Deploy: http://fadecio.github.io/CoinPulse/  
 - Status: Finalizado  
 - Conceitos praticados: JavaScript, DOM, localStorage, responsividade, UX  
 
