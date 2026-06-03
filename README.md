@@ -10,6 +10,7 @@ O projeto permite visualizar cotações atualizadas, pesquisar moedas, converter
 
 ### Apresentação do projeto
 
+<<<<<<< HEAD
 <p align="center">
   <img 
     src="./src/assets/image/marketing.png" 
@@ -40,6 +41,17 @@ O projeto permite visualizar cotações atualizadas, pesquisar moedas, converter
     height="514"
   >
 </p>
+=======
+![Preview de apresentação do CoinPulse](./images/marketing.png)
+
+### Versão desktop
+
+![Preview desktop do dashboard CoinPulse](./images/desktop.png)
+
+### Versão responsiva
+
+![Preview responsivo do CoinPulse em tablet](./images/responsive_768px.png)
+>>>>>>> abeaf55 (docs: corrige previews do README)
 
 ---
 
